@@ -1,4 +1,7 @@
 name: "Nix Act"
+branding:
+  icon: "box"
+  color: "purple"
 description: "Checkout, install Nix, connect to Nix cache, and set environment for CI."
 inputs:
   environment:
