@@ -1,0 +1,22 @@
+name: "Nix Act"
+description: "Checkout, install Nix, connect to Nix cache, and set environment for CI."
+inputs:
+  environment:
+    description: "The environment to setup for."
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@main
+
+    - name: Connect Magic Nix Cache
+      uses: DeterminateSystems/magic-nix-cache-action@main
+
+    - name: Enter environment
+      uses: nicknovitski/nix-develop@v1.1.0
+      with:
+        arguments: .#${{ inputs.environment }}
