@@ -22,4 +22,4 @@ runs:
     - name: Enter environment
       uses: nicknovitski/nix-develop@v1.1.0
       with:
-        arguments: .#${{ inputs.environment }}
+        arguments: ".#${{ inputs.environment }} --accept-flake-config"
